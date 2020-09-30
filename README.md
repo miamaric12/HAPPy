@@ -14,7 +14,7 @@ This is a package developed to aid in the charactacterisation of radial hydrides
 - Numba
 - Skan
 
-Example Micrographs that can be used for testing of the code are located in the 'Example Micrographs Folder' 
+An example micrograph has been uploaded and is called **example micrograph.png**
 
 ### **Contacts for Code:** 
 - Mia Maric (mia.maric@manchester.ac.uk)
