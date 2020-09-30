@@ -1,4 +1,4 @@
-# Radial_Hydride_Code
+# Radial Hydride Code
 
 ### **Description:**
 This is a package developed to aid in the charactacterisation of radial hydrides from micrographs. The main functions of this package are to: 
