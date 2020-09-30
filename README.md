@@ -4,7 +4,7 @@
 This is a package developed to aid in the charactacterisation of radial hydrides from micrographs. The main functions of this package are to: 
 - Determine the Radial Hydride Fraction (RHF)
 - Characterise the extent of branching
-- Determine the most probably crack path within a micrograph
+- Determine the most probable crack path within a micrograph
 
 ### **For this code to work several software packages must be installed:**
 - Numpy 
