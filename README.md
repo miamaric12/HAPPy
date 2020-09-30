@@ -17,7 +17,7 @@ This is a package developed to aid in the charactacterisation of radial hydrides
 Example Micrographs that can be used for testing of the code are located in the 'Example Micrographs Folder' 
 
 ### **Contacts for Code:** 
-Mia Maric (mia.maric@manchester.ac.uk)
-Dr Pratheek Shanthraj (pratheek.shanthraj@manchester.ac.uk.)
-Dr Rhys Thomas (rhys.thomas@manchester.ac.uk)
-Dr Michael Atkinson (michael.atkinson@manchester.ac.uk)
+- Mia Maric (mia.maric@manchester.ac.uk)
+- Dr Pratheek Shanthraj (pratheek.shanthraj@manchester.ac.uk.)
+- Dr Rhys Thomas (rhys.thomas@manchester.ac.uk)
+- Dr Michael Atkinson (michael.atkinson@manchester.ac.uk)
