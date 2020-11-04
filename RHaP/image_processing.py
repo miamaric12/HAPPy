@@ -1,6 +1,6 @@
-import numpy as np
 import copy
-from scipy import ndimage
+import numpy as np
+from scipy.ndimage import gaussian_filter
 from skimage.morphology import remove_small_objects
 
 
@@ -18,28 +18,27 @@ def nan_gaussian(image, sigma):
     Output
     -------
     gauss
-        
     """
 
     nan_msk = np.isnan(image)
     loss = np.zeros(image.shape)
     loss[nan_msk] = 1
-    loss = ndimage.gaussian_filter(loss, sigma=sigma, mode='constant', cval=1)
+    loss = gaussian_filter(loss, sigma=sigma, mode='constant', cval=1)
     gauss = image.copy()
     gauss[nan_msk] = 0
-    gauss = ndimage.gaussian_filter(gauss, sigma=sigma, mode='constant', cval=0)
+    gauss = gaussian_filter(gauss, sigma=sigma, mode='constant', cval=0)
     gauss[nan_msk] = np.nan
     gauss += loss * image
 
     return gauss
 
-def minimize_grain_contrast(image,sigma): 
+def minimize_grain_contrast(image, sigma): 
     gaussian_blur = nan_gaussian(image, sigma = sigma)
-    removedGrains = image/gaussian_blur
+    removedGrains = image / gaussian_blur
     
     return(removedGrains)
 
-def simple_threshold(image,crop_threshold,threshold,small_grains):
+def simple_threshold(image, crop_threshold, threshold, small_grains):
     """
     Threshold the image, where the hydrides are identified to be white and the matrix is black
     
@@ -54,13 +53,12 @@ def simple_threshold(image,crop_threshold,threshold,small_grains):
     crop_threshold: array
         array of true false so that thresholding is only performed within the region that has been previously cropped
         
-    
     Output
     -------
     thres_disp:
         The thresholded image
-        
     """
+
     thres = image < threshold
     thres = remove_small_objects(thres, min_size=small_grains)
 

@@ -1,17 +1,17 @@
-
+import numpy as np
 from matplotlib_scalebar.scalebar import ScaleBar
 from matplotlib import pyplot as plt
-import numpy as np
 
 def addScaleBar(ax):
     """
     Add a scale bar to an axes.
+
     Parameters
     ----------
     ax : matplotlib.axes.Axes
         Matplotlib axis to plot on 
-        
     """
+
     if scale:
         scalebar = ScaleBar(scale)
         fig.gca().add_artist(scalebar)
@@ -25,13 +25,14 @@ def addArrows(ax, c='r', lenx=0.04, leny=0.06, flip=False):
     ----------
     ax : matplotlib.axes.Axes
         Matplotlib axis to plot on 
-  
-    
     """
+
     startcoord = (0.02, 0.02);
     
-    ax.annotate("", xy=(startcoord[0]-0.002, startcoord[1]), xytext=(startcoord[0]+lenx, startcoord[1]), xycoords = 'axes fraction', c=c, arrowprops=dict(arrowstyle="<-", color=c, lw=3))
-    ax.annotate("", xy=(startcoord[0], startcoord[1]-0.002), xytext=(startcoord[0], startcoord[1]+leny), xycoords = 'axes fraction', c=c, arrowprops=dict(arrowstyle="<-", color=c, lw=3))
+    ax.annotate("", xy=(startcoord[0]-0.002, startcoord[1]), xytext=(startcoord[0]+lenx, startcoord[1]), 
+        xycoords = 'axes fraction', c=c, arrowprops=dict(arrowstyle="<-", color=c, lw=3))
+    ax.annotate("", xy=(startcoord[0], startcoord[1]-0.002), xytext=(startcoord[0], startcoord[1]+leny), 
+        xycoords = 'axes fraction', c=c, arrowprops=dict(arrowstyle="<-", color=c, lw=3))
     if flip == False:
         ax.annotate("R", xy=(0.011, startcoord[1]+leny), xycoords = 'axes fraction', fontsize=18, fontweight='bold', c=c)
         ax.annotate("C", xy=(startcoord[0]+lenx, 0.01), xycoords = 'axes fraction', fontsize=18, fontweight='bold', c=c)
@@ -54,8 +55,8 @@ def plot_comparison(plot1, name_plot_1, plot2, name_plot_2):
         Title of plot 1
     name_plot_2: String
         Title of plot 2
-            
     """
+    
     fig, (ax_a, ax_b) = plt.subplots(ncols=2, figsize=(26, 16), sharex=True, sharey=True)
     ax_a.imshow(plot1, cmap=plt.cm.gray)
     ax_a.set_title(name_plot_1, fontsize=16)

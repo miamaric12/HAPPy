@@ -1,9 +1,9 @@
 import numpy as np
 from scipy import ndimage
 from skimage.graph import route_through_array
-from skimage.transform import rescale, resize, downscale_local_mean
+from skimage.transform import rescale
 
-def det_crack_path(thres,crop_threshold,num_runs,kernel_size):
+def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
     """
     Determine Possible Crack Paths in the micrograph
     
@@ -15,7 +15,6 @@ def det_crack_path(thres,crop_threshold,num_runs,kernel_size):
         calculated during thresholding, array of true and false values
     num_runs int
         number of crack paths to determine
-
     
     Output
     -------
@@ -25,23 +24,21 @@ def det_crack_path(thres,crop_threshold,num_runs,kernel_size):
         list of possible crack paths
     cost_list: list
         list of cost values for each crack path
-
-
     """
   
     edist = ndimage.morphology.distance_transform_edt(thres==0)
-    edist = rescale(edist,(1,1))
+    edist = rescale(edist,(1, 1))
 
     #add a row of zeros on the top and bottom 
-    edist[0,:]=0
-    edist[-1,:]=0
+    edist[0,:] = 0
+    edist[-1,:] = 0
 
     #make a empty list to store paths and costs
     path_list = []; cost_list = [];
 
     for run in np.arange(num_runs):
         path, cost = route_through_array(edist,[0,0],[-1,-1])
-        path=np.array(path)
+        path = np.array(path)
 
         path_coord_list = []
 
@@ -63,7 +60,7 @@ def det_crack_path(thres,crop_threshold,num_runs,kernel_size):
         cost_list.append(cost)
 
       
-    edist = ndimage.morphology.distance_transform_edt(thres==0)
+    edist = ndimage.morphology.distance_transform_edt(thres == 0)
     edist = rescale(edist,(1,1))
 
 

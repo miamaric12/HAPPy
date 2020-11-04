@@ -1,8 +1,6 @@
-
 import numpy as np
 from skimage.color import rgb2grey
 from skimage.io import imread
-
 
 def image(image_path, transpose):
     """
@@ -21,13 +19,12 @@ def image(image_path, transpose):
     -------
     original_image
         The transposed/imported image to be analysed
-    
     """
+
     original_image = imread(image_path)
     original_image = rgb2grey(original_image)
     
     if transpose == True:
         original_image = np.transpose(original_image)
         
-    
     return original_image

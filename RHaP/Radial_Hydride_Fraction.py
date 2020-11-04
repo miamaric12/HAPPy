@@ -1,18 +1,11 @@
-from scipy import ndimage
-from skimage.measure import regionprops, label
-from skimage.transform import hough_line, hough_line_peaks
-from skimage.feature import peak_local_max
-from matplotlib.patches import Rectangle
 import numpy as np
+from scipy import ndimage
+from skimage.transform import hough_line, hough_line_peaks
 from matplotlib import pyplot as plt
-from matplotlib.ticker import PercentFormatter
-import matplotlib.patches as mpatches
-from matplotlib_scalebar.scalebar import ScaleBar
-from matplotlib import cm
 from matplotlib.patches import Rectangle
+from matplotlib_scalebar.scalebar import ScaleBar
 
-
-def hough_rad(image,num_peaks,min_distance=5,min_angle=5,val = 0.25):
+def hough_rad(image, num_peaks, min_distance=5, min_angle=5, val = 0.25):
     """
     Perform Hough Line Transfom to determine radial hydride fraction
     
@@ -31,8 +24,7 @@ def hough_rad(image,num_peaks,min_distance=5,min_angle=5,val = 0.25):
         longest hydride are measured. This helps to reduce noise becuase only hydrides that are significant 
         in size are included in the calculation. The default value for this is 0.25, if you have much smaller hydride branches that you want to pick up
         this value can be reduced, but remember the noise increases as well.
-        
-    
+
     Output
     -------
     Radial:
@@ -41,13 +33,13 @@ def hough_rad(image,num_peaks,min_distance=5,min_angle=5,val = 0.25):
         Fraction of circumferential hydrides calculated from Hough Transform
     angle_list: List
         List of angles generated from the hough transform
-        
     """
+
     fig, axes = plt.subplots(2, 1, figsize=(30,35))
     ax = axes.ravel()
 
     # Plotting
-    ax[0].imshow(image,cmap='gray')
+    ax[0].imshow(image, cmap='gray')
     ax[0].set_axis_off()
     ax[0].set_title('Thresholded image', fontsize=16)
     ax[1].imshow(image, cmap='gray')
@@ -91,7 +83,7 @@ def hough_rad(image,num_peaks,min_distance=5,min_angle=5,val = 0.25):
     return angle_list,len_list
 
 
-def RHF_no_weighting_factor(angle_list,len_list):
+def RHF_no_weighting_factor(angle_list, len_list):
     """
     Calculate the Radial Hydride Fraction without any weighting factor
 
@@ -108,31 +100,28 @@ def RHF_no_weighting_factor(angle_list,len_list):
         fraction of radial hydrides
     circumferential: float
         fraction of circumferential hydrides
-
     """
     radial = np.sum(np.where(np.logical_and(-np.pi / 4 <= angle_list, angle_list < np.pi / 4), len_list, 0))
     circumferential = np.sum(np.where(np.logical_and(-np.pi / 4 <= angle_list, angle_list < np.pi / 4), 0, len_list))
     
-    radial = radial/(radial+circumferential)
-    circumferential = circumferential/(radial+circumferential)
+    radial = radial / (radial + circumferential)
+    circumferential = circumferential / (radial + circumferential)
     
     return radial, circumferential 
 
 
 
-def weighted_RHF_calculation(angle_list,len_list):
+def weighted_RHF_calculation(angle_list, len_list):
     """
     Weighted Radial Hydride Fraction Calculation
     
     Parameters
     ----------
-    
     angle_list: list
         List of angles generated from the hogh line transform
     len_list: list
         List of lengths generated from the hogh line transform
    
-    
     Output
     -------
       RHF: float
@@ -153,10 +142,10 @@ def weighted_RHF_calculation(angle_list,len_list):
         fi.append(x)
 
     #The next step is to do the summation
-    SumOfLixFi = sum(len_list*np.array(fi))
+    SumOfLixFi = sum(len_list * np.array(fi))
     SumOfLi = sum(len_list)
 
-    RHF = SumOfLixFi/SumOfLi
+    RHF = SumOfLixFi / SumOfLi
 
     return RHF
 

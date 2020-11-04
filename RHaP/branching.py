@@ -1,12 +1,9 @@
-
+import numpy as np
 from matplotlib import pyplot as plt
 from skimage.morphology import skeletonize
 from skan import Skeleton, summarize
-from skan import skeleton_to_csgraph
-from skan import draw
 import networkx as nx
 import toolz as tz
-import numpy as np
 
 def branch_classification(thres):
     """
@@ -14,7 +11,6 @@ def branch_classification(thres):
     
     Parameters
     ----------
-    
     thres: array
         thresholded image to be analysed
     
@@ -54,8 +50,6 @@ def branch_classification(thres):
     g.add_weighted_edges_from(
         zip(us, vs, ws)
     )
-
-
 
     for conn in nx.connected_components(g):
         curr_val = 0
