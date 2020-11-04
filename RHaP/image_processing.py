@@ -32,13 +32,30 @@ def nan_gaussian(image, sigma):
 
     return gauss
 
-def minimize_grain_contrast(image, sigma): 
+def minimize_grain_contrast(image, sigma):
+    """
+    Minimise grain contrast or uneven lighting by dividing the original image 
+    by an image with a gaussian blur applied.
+    
+    Parameters
+    ----------
+    image: 
+        Image to minimise grain contrast.
+    sigma: float
+        Sigma value for gaussian blur.
+        
+    Output
+    -------
+    removedGrains:
+        Output image.
+    """
+
     gaussian_blur = nan_gaussian(image, sigma = sigma)
     removedGrains = image / gaussian_blur
     
     return(removedGrains)
 
-def simple_threshold(image, crop_threshold, threshold, small_grains):
+def simple_threshold(image, crop_threshold, threshold, small_obj=None):
     """
     Threshold the image, where the hydrides are identified to be white and the matrix is black
     
@@ -46,9 +63,9 @@ def simple_threshold(image, crop_threshold, threshold, small_grains):
     ----------
     removed_grains: arr
         image to threshold
-    theshold: int/float
+    theshold: float
         threshold level
-    small_grains: int/float
+    small_grains: int
         size of features to be removed and not thresholded
     crop_threshold: array
         array of true false so that thresholding is only performed within the region that has been previously cropped
@@ -60,7 +77,8 @@ def simple_threshold(image, crop_threshold, threshold, small_grains):
     """
 
     thres = image < threshold
-    thres = remove_small_objects(thres, min_size=small_grains)
+    if small_obj is not None:
+        thres = remove_small_objects(thres, min_size=small_obj)
 
 
     thres_disp = copy.deepcopy(thres)
