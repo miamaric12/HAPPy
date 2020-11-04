@@ -8,7 +8,7 @@ This is a Python package developed to aid in the charactacterisation and quantif
 ## **How to install**
 
 - First, python and a package manager needs to be installed. Anaconda is one option and can be installed from [here](https://www.anaconda.com/products/individual).
-- The prerequisite packages for this software can then be installed using the command `conda install scipy numpy matplotlib scikit-image numba skan jupyter` .
+- The prerequisite packages for this software can then be installed using the command `conda install scipy numpy matplotlib scikit-image numba skan jupyter networkx toolz matplotlib-scalebar` .
 - Download this repository by clicking the green download button above.
 
 ## **How to use**
@@ -32,6 +32,9 @@ The software uses the following open source packages:
 - [scipy](https://scipy.org/scipylib/)
 - [numba](https://numba.pydata.org)
 - [skan](https://jni.github.io/skan/)
+- [networkx](https://networkx.org/)
+- [toolz](https://github.com/pytoolz/toolz/)
+- [matplotlib-scalebar](https://pypi.org/project/matplotlib-scalebar/)
 
 ## **Contacts** 
 
