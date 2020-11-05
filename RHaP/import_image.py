@@ -8,17 +8,17 @@ def image(image_path, transpose):
     
     Parameters
     ----------
-    image_path: str
-        Path to the image, excluding extension, including name
-    transpose: Boolean Value
-        Whether the image needs to be rotated so that radial hydrides are in the vertical direction
-        If True: Image will be transposed
-        If False: Image will not be transposed
+        image_path: str
+            Path to the image, excluding extension, including name
+        transpose: Boolean Value
+            Whether the image needs to be rotated so that radial hydrides are in the vertical direction
+            If True: Image will be transposed
+            If False: Image will not be transposed
         
-    Output
+    Returns
     -------
-    original_image
-        The transposed/imported image to be analysed
+        original_image
+            The transposed/imported image to be analysed
     """
 
     original_image = imread(image_path)

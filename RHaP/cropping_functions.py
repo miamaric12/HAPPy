@@ -8,15 +8,15 @@ def cropImage(image, crop_bottom, crop_top, crop_left, crop_right):
     
     Parameters
     ----------
-    image : jpg or png
-        The image that is to be cropped
-    crop_bottom, crop_top, crop_left, crop: int
-        How many pixels to crop in each of these directions
+      image : jpg or png
+          The image that is to be cropped
+      crop_bottom, crop_top, crop_left, crop: int
+          How many pixels to crop in each of these directions
         
-    Output
+    Returns
     ---------
-    image: array
-        The image that has been cropped
+      image: array
+          The image that has been cropped
     """
 
     if crop_bottom == 0:
@@ -36,21 +36,21 @@ def cropping_tube(image, crop_param, size_param, dilation_param):
       
     Parameters
     ----------
-    image: jpg, png
-        The original tubed image that needs to be cropped
-    crop_param: int
-        Threshold for removing the dark edges i.e., tube ends in the image
-    size_param: int
-        Make sure features below this size (i.e. hydrides) are not included in cropping
-    dilation_param:int
-        Dilate the cropped boundary by a number of pixels
+      image: jpg, png
+          The original tubed image that needs to be cropped
+      crop_param: int
+          Threshold for removing the dark edges i.e., tube ends in the image
+      size_param: int
+          Make sure features below this size (i.e. hydrides) are not included in cropping
+      dilation_param:int
+          Dilate the cropped boundary by a number of pixels
     
-    Output
+    Returns
     -------
-    cropped image:
-      The final cropped image
-    cropped threshold:
-      True/False array highlighting the cropped and not cropped regions
+      cropped image:
+        The final cropped image
+      cropped threshold:
+        True/False array highlighting the cropped and not cropped regions
     """
     
     crop_threshold = image < crop_param

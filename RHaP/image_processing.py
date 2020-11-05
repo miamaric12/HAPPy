@@ -10,14 +10,14 @@ def nan_gaussian(image, sigma):
     
     Parameters
     ----------
-    image: 
-        an array with nans
-    sigma: int
-        σ is the standard deviation of the Gaussian distribution
+        image: 
+            an array with nans
+        sigma: int
+            σ is the standard deviation of the Gaussian distribution
     
-    Output
+    Returns
     -------
-    gauss
+        gauss
     """
 
     nan_msk = np.isnan(image)
@@ -39,15 +39,15 @@ def minimize_grain_contrast(image, sigma):
     
     Parameters
     ----------
-    image: 
-        Image to minimise grain contrast.
-    sigma: float
-        Sigma value for gaussian blur.
+        image: 
+            Image to minimise grain contrast.
+        sigma: float
+            Sigma value for gaussian blur.
         
-    Output
+    Returns
     -------
-    removedGrains:
-        Output image.
+        removedGrains:
+            Output image.
     """
 
     gaussian_blur = nan_gaussian(image, sigma = sigma)
@@ -61,19 +61,19 @@ def simple_threshold(image, crop_threshold, threshold, small_obj=None):
     
     Parameters
     ----------
-    removed_grains: arr
-        image to threshold
-    theshold: float
-        threshold level
-    small_grains: int
-        size of features to be removed and not thresholded
-    crop_threshold: array
-        array of true false so that thresholding is only performed within the region that has been previously cropped
+        removed_grains: arr
+            image to threshold
+        theshold: float
+            threshold level
+        small_grains: int
+            size of features to be removed and not thresholded
+        crop_threshold: array
+            array of true false so that thresholding is only performed within the region that has been previously cropped
         
-    Output
+    Returns
     -------
-    thres_disp:
-        The thresholded image
+        thres_disp:
+            The thresholded image
     """
 
     thres = image < threshold

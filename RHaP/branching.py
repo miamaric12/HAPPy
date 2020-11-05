@@ -11,17 +11,17 @@ def branch_classification(thres):
     
     Parameters
     ----------
-    thres: array
-        thresholded image to be analysed
+        thres: array
+            thresholded image to be analysed
     
-    Output
+    Returns
     -------
-    skel: array
-        skeletonised image
-    is_main:
-        help
-    BLF: int/float
-        branch length fraction
+        skel: array
+            skeletonised image
+        is_main:
+            help
+        BLF: int/float
+            branch length fraction
     """
     
     skeleton = skeletonize(thres)

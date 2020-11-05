@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RHaP.plot_functions module &mdash; RHaP  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RHaP.radial_hydride_fraction module" href="RHaP.radial_hydride_fraction.html" />
+    <link rel="prev" title="RHaP.import_image module" href="RHaP.import_image.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> RHaP
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtouse.html">How to use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">Credits</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="RHaP.branching.html">RHaP.branching module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RHaP.crack_path.html">RHaP.crack_path module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RHaP.cropping_functions.html">RHaP.cropping_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RHaP.image_processing.html">RHaP.image_processing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RHaP.import_image.html">RHaP.import_image module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RHaP.plot_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RHaP.radial_hydride_fraction.html">RHaP.radial_hydride_fraction module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RHaP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../modules.html">API Documentation</a> &raquo;</li>
+        
+      <li>RHaP.plot_functions module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/RHaP.plot_functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-RHaP.plot_functions">
+<span id="rhap-plot-functions-module"></span><h1>RHaP.plot_functions module<a class="headerlink" href="#module-RHaP.plot_functions" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="RHaP.plot_functions.addScaleBar">
+<code class="sig-prename descclassname">RHaP.plot_functions.</code><code class="sig-name descname">addScaleBar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">scale</span></em>, <em class="sig-param"><span class="n">location</span><span class="o">=</span><span class="default_value">'upper right'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/RHaP/plot_functions.html#addScaleBar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#RHaP.plot_functions.addScaleBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a scale bar to an axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.2)"><em>matplotlib.axes.Axes</em></a>) – Matplotlib axis to plot on</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="RHaP.plot_functions.addArrows">
+<code class="sig-prename descclassname">RHaP.plot_functions.</code><code class="sig-name descname">addArrows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">c</span><span class="o">=</span><span class="default_value">'r'</span></em>, <em class="sig-param"><span class="n">lenx</span><span class="o">=</span><span class="default_value">0.04</span></em>, <em class="sig-param"><span class="n">leny</span><span class="o">=</span><span class="default_value">0.06</span></em>, <em class="sig-param"><span class="n">flip</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/RHaP/plot_functions.html#addArrows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#RHaP.plot_functions.addArrows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add coordinate definition arrows (radial and circumferential) to an axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.2)"><em>matplotlib.axes.Axes</em></a>) – Matplotlib axis to plot on</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="RHaP.plot_functions.plot">
+<code class="sig-prename descclassname">RHaP.plot_functions.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">title</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">location</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/RHaP/plot_functions.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#RHaP.plot_functions.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plotting an imge.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> – Image data to be plotted</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Title of plot.</p></li>
+<li><p><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Scale in meters per pixel.</p></li>
+<li><p><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Location of scale bar i.e. ‘lower right’, ‘upper left’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="RHaP.plot_functions.plot_comparison">
+<code class="sig-prename descclassname">RHaP.plot_functions.</code><code class="sig-name descname">plot_comparison</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img1</span></em>, <em class="sig-param"><span class="n">title1</span></em>, <em class="sig-param"><span class="n">img2</span></em>, <em class="sig-param"><span class="n">title2</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">location</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/RHaP/plot_functions.html#plot_comparison"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#RHaP.plot_functions.plot_comparison" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plotting two images next to each other.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img1</strong> – Image data to be plotted on left.</p></li>
+<li><p><strong>img2</strong> – Image data to be plotted on right.</p></li>
+<li><p><strong>title1</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Title of left-hand plot.</p></li>
+<li><p><strong>title2</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Title of right-hand plot.</p></li>
+<li><p><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Scale in meters per pixel.</p></li>
+<li><p><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Location of scale bar i.e. ‘lower right’, ‘upper left’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="RHaP.plot_functions.plot_hist">
+<code class="sig-prename descclassname">RHaP.plot_functions.</code><code class="sig-name descname">plot_hist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/RHaP/plot_functions.html#plot_hist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#RHaP.plot_functions.plot_hist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RHaP.radial_hydride_fraction.html" class="btn btn-neutral float-right" title="RHaP.radial_hydride_fraction module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="RHaP.import_image.html" class="btn btn-neutral float-left" title="RHaP.import_image module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Mia Maric
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

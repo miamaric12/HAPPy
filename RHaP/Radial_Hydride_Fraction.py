@@ -11,32 +11,32 @@ def hough_rad(image, num_peaks, min_distance=5, min_angle=5, val=0.25, scale=Non
     
     Parameters
     ----------
-    image: array
-        input thresholded hydride image
-    num_peaks: int/float
-        number of measured peaks in one rectangle 
-    min_distance: int/float
-        minimum distance separating two parallel lines it seems that a value of 5 is good
-    min_angle: int/float
-        minimum angle separating two lines it seems that a value of 5 is good
-    val: float
-        val is a number < 1 where, only hydrides that are at least val times the length of the 
-        longest hydride are measured. This helps to reduce noise becuase only hydrides that are significant 
-        in size are included in the calculation. The default value for this is 0.25, if you have much smaller hydride branches that you want to pick up
-        this value can be reduced, but remember the noise increases as well.
-    scale: float
-        Scale in meters per pixel.
-    location: str
-        Location of scale bar i.e. 'lower right', 'upper left'
+        image: array
+            input thresholded hydride image
+        num_peaks: int/float
+            number of measured peaks in one rectangle 
+        min_distance: int/float
+            minimum distance separating two parallel lines it seems that a value of 5 is good
+        min_angle: int/float
+            minimum angle separating two lines it seems that a value of 5 is good
+        val: float
+            val is a number < 1 where, only hydrides that are at least val times the length of the 
+            longest hydride are measured. This helps to reduce noise becuase only hydrides that are significant 
+            in size are included in the calculation. The default value for this is 0.25, if you have much smaller hydride branches that you want to pick up
+            this value can be reduced, but remember the noise increases as well.
+        scale: float
+            Scale in meters per pixel.
+        location: str
+            Location of scale bar i.e. 'lower right', 'upper left'
 
-    Output
+    Returns
     -------
-    Radial:
-        Fraction of radial hydrides calculated from Hough Transform
-    Circumferential:
-        Fraction of circumferential hydrides calculated from Hough Transform
-    angle_list: List
-        List of angles generated from the hough transform
+        Radial:
+            Fraction of radial hydrides calculated from Hough Transform
+        Circumferential:
+            Fraction of circumferential hydrides calculated from Hough Transform
+        angle_list: List
+            List of angles generated from the hough transform
     """
 
     fig, axes = plt.subplots(ncols=2, figsize=(14, 7), sharex=True, sharey=True)
@@ -111,7 +111,7 @@ def RHF_no_weighting_factor(angle_list, len_list):
     len_list: list
         List of lengths generated from the hogh line transform
 
-    Output
+    Returns
     ----------
     radial: float 
         fraction of radial hydrides
@@ -139,7 +139,7 @@ def weighted_RHF_calculation(angle_list, len_list):
     len_list: list
         List of lengths generated from the hogh line transform
    
-    Output
+    Returns
     -------
       RHF: float
           Weighted radial hydride fraction

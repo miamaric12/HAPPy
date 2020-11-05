@@ -46,14 +46,14 @@ def plot(img, title, scale=None, location=None):
     
     Parameters
     ----------
-    img:
-        Image data to be plotted
-    title: str
-        Title of plot.
-    scale: float
-        Scale in meters per pixel.
-    location: str
-        Location of scale bar i.e. 'lower right', 'upper left'
+        img:
+            Image data to be plotted
+        title: str
+            Title of plot.
+        scale: float
+            Scale in meters per pixel.
+        location: str
+            Location of scale bar i.e. 'lower right', 'upper left'
     """
 
     fig, ax = plt.subplots(figsize=(10,6))

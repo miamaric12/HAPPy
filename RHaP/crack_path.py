@@ -9,21 +9,21 @@ def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
     
     Parameters
     ----------
-    thres: array
-        thesholded image to look at
-    crop_threshold: array
-        calculated during thresholding, array of true and false values
-    num_runs int
-        number of crack paths to determine
+        thres: array
+            thesholded image to look at
+        crop_threshold: array
+            calculated during thresholding, array of true and false values
+        num_runs int
+            number of crack paths to determine
     
-    Output
+    Returns
     -------
-    edist: array
-        min euclidean distace from the hydride to the matrix
-    path_list:
-        list of possible crack paths
-    cost_list: list
-        list of cost values for each crack path
+        edist: array
+            min euclidean distace from the hydride to the matrix
+        path_list:
+            list of possible crack paths
+        cost_list: list
+            list of cost values for each crack path
     """
   
     edist = ndimage.morphology.distance_transform_edt(thres==0)
