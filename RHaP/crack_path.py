@@ -2,6 +2,7 @@ import numpy as np
 from scipy import ndimage
 from skimage.graph import route_through_array
 from skimage.transform import rescale
+from scipy.ndimage.morphology import binary_dilation
 
 def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
     """
@@ -26,40 +27,38 @@ def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
             list of cost values for each crack path
     """
   
+    # Use distance away from a hydride as a path to route through
     edist = ndimage.morphology.distance_transform_edt(thres==0)
     edist = rescale(edist,(1, 1))
 
-    #add a row of zeros on the top and bottom 
-    edist[0,:] = 0
-    edist[-1,:] = 0
+    # Add a row of zeros on the top and bottom and set cost=0 outside tube
+    edist[0,:] = 0; edist[-1,:] = 0; 
+    edist = np.where(crop_threshold==True, 0, edist)
 
-    #make a empty list to store paths and costs
+    # Make a empty list to store paths and costs
     path_list = []; cost_list = [];
 
     for run in np.arange(num_runs):
+        # Coordinates and cost corresponding to path
         path, cost = route_through_array(edist,[0,0],[-1,-1])
         path = np.array(path)
-
-        path_coord_list = []
-
-        # Filtering the path
+      
+        # Boolean array based on coordinates, True is on path
+        path_array = np.zeros(np.shape(edist), dtype=bool)
         for coord in path:
-            #if coord[0] != 0:       #remove the top row
-            #    if coord[0]!= edist.shape[0]-1:       #remove the bottom row
-            if crop_threshold[coord[0], coord[1]] == False:      #if the threshold region is fale then apend the path
-                path_coord_list.append(coord)
+            path_array[coord[0], coord[1]] = True
 
-                #to search for a different path next time, change current path to np.inf
-                #also make surrounding coords np.inf too
-                for j in [1, kernel_size]:
-                    for i in [[0,0], [j,0], [0,j], [-j,0], [0,-j], [j,j], [-j,-j], [j,-j], [-j,j]]:
-                        if coord[0]+i[0] >=0 and coord[0]+i[0] <edist.shape[0] and coord[1]+i[1] >=0 and coord[1]+i[1]<edist.shape[1]:
-                            edist[coord[0]+i[0], coord[1]+i[1]] = np.inf
-
-        path_list.append(np.array(path_coord_list))
+        # Take away points outside of crop, make coord array and append to list
+        path_array_cropped = np.logical_and(path_array, ~crop_threshold)
+        path_coords = np.transpose(np.nonzero(path_array_cropped==True))
+        path_list.append(np.array(path_coords))
         cost_list.append(cost)
 
-      
+        # Filtering path based on kernel size, so that the next run will take a different path
+        filter_array = binary_dilation(path_array_cropped, iterations=kernel_size)
+        edist = np.where(filter_array==True, np.inf, edist)
+        edist = np.where(crop_threshold==True, 0, edist)
+
     edist = ndimage.morphology.distance_transform_edt(thres == 0)
     edist = rescale(edist,(1,1))
 
