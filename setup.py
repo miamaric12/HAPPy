@@ -38,7 +38,7 @@ setup(
         'Framework :: Matplotlib'
     ],
     packages=find_packages(),
-    package_data={'RHaP'},
+    package_data={'RHaP': ['data/example.bmp']},
     python_requires='>=3.5',
     install_requires=[
         'scipy',
