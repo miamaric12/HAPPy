@@ -30,3 +30,7 @@ venv/
 
 # coverage
 .coverage
+
+/RHaP.egg-info/
+/build/
+/dist/
