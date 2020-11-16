@@ -1,6 +1,8 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/miamaric12/Radial_Hydride_Code/master)
+
 # Radial Hydride Code
 
-This is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to: 
+This is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to:
 - Determine the Radial Hydride Fraction (RHF)
 - Characterise the extent of branching
 - Determine the most probable crack path within a micrograph
@@ -34,7 +36,7 @@ The software uses the following open source packages:
 - [toolz](https://github.com/pytoolz/toolz/)
 - [matplotlib-scalebar](https://pypi.org/project/matplotlib-scalebar/)
 
-## **Contacts** 
+## **Contacts**
 
 - Mia Maric (mia.maric@manchester.ac.uk)
 - Dr Pratheek Shanthraj (pratheek.shanthraj@manchester.ac.uk)
