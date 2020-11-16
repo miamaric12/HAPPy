@@ -11,7 +11,7 @@ def get_long_description():
 
 setup(
     name='RHaP',
-    version='0.1',
+    version='0.2',
     author='Mia Maric, Rhys Thomas, Michael D. Atkinson',
     author_email='mia.maric@manchester.ac.uk',
     description='A python library to analyse hydride morphology present in light optical and scanning electron micrographs.',
