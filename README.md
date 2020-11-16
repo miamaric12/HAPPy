@@ -11,7 +11,7 @@ This is a Python package developed to aid in the charactacterisation and quantif
 
 ## **How to install**
 
-- `pip install RHaP==0.1`
+- `pip install RHaP==0.2`
 
 ## **How to use**
 
