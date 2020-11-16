@@ -43,6 +43,7 @@ notebook==6.1.5           # via jupyter, widgetsnbextension
 numba==0.51.2             # via RHaP (setup.py)
 numpy==1.19.4             # via RHaP (setup.py), imageio, matplotlib, numba, pywavelets, scikit-image, scipy, tifffile
 packaging==20.4           # via bleach
+pandas==1.1.4
 pandocfilters==1.4.3      # via nbconvert
 parso==0.7.1              # via jedi
 pexpect==4.8.0            # via ipython
