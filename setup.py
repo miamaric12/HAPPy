@@ -51,8 +51,5 @@ setup(
         'matplotlib_scalebar',
         'networkx',
         'jupyter'
-        'pandas'
-         
-
     ],
 )
