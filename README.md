@@ -1,5 +1,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/miamaric12/Radial_Hydride_Code/master)
 [![PyPI version](https://badge.fury.io/py/RHaP.svg)](https://badge.fury.io/py/RHaP)
+[![Documentation Status](https://readthedocs.org/projects/radial-hydride-code/badge/?version=latest)](https://radial-hydride-code.readthedocs.io/en/latest/?badge=latest)
 
 # Radial Hydride Code
 
