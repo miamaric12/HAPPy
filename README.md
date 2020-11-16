@@ -1,4 +1,5 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/miamaric12/Radial_Hydride_Code/master)
+[![PyPI version](https://badge.fury.io/py/RHaP.svg)](https://badge.fury.io/py/RHaP)
 
 # Radial Hydride Code
 
