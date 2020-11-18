@@ -14,7 +14,7 @@ def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
         thesholded image to look at
     crop_threshold: array
         calculated during thresholding, array of true and false values
-    num_runs int
+    num_runs: int
         number of crack paths to determine
 
     Returns
