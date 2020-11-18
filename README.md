@@ -40,7 +40,7 @@ The software uses the following open source packages:
 
 ## **Contacts**
 
-- Mia Maric (mia.maric@manchester.ac.uk)
+- Miss Mia Maric (mia.maric@manchester.ac.uk)
 - Dr Pratheek Shanthraj (pratheek.shanthraj@manchester.ac.uk)
 - Dr Rhys Thomas (rhys.thomas@manchester.ac.uk)
 - Dr Michael Atkinson (michael.atkinson@manchester.ac.uk)
