@@ -145,31 +145,32 @@ def hough_rad(
 
 
 def RHF_no_weighting_factor(angle_list, len_list):
-    """
-    Calculate the Radial Hydride Fraction without any weighting factor
+    """Calculate the Radial Hydride Fraction without any weighting factor
 
     Parameters
     ----------
-    angle_list:list
+    angle_list : array
         calculated from the Hough line transform
-    len_list: list
+    len_list : array
         List of lengths generated from the hogh line transform
 
     Returns
-    ----------
-    radial: float 
+    -------
+    radial : float
         fraction of radial hydrides
-    circumferential: float
+    circumferential : float
         fraction of circumferential hydrides
     """
-    
-    radial = np.sum(np.where(np.logical_and(-np.pi / 4 <= angle_list, angle_list < np.pi / 4), len_list, 0))
-    circumferential = np.sum(np.where(np.logical_and(-np.pi / 4 <= angle_list, angle_list < np.pi / 4), 0, len_list))
-    
-    radial = radial / (radial + circumferential)
-    circumferential = circumferential / (radial + circumferential)
-    
-    return radial, circumferential 
+    radial_angles = np.logical_and(
+            -np.pi / 4 <= angle_list, angle_list < np.pi / 4
+            )
+    radial_len = np.sum(len_list[radial_angles])
+    circumferential_len = np.sum(len_list[~radial_angles])
+
+    radial = radial_len / (radial_len + circumferential_len)
+    circumferential = 1 - radial
+
+    return radial, circumferential
 
 
 def weighted_RHF_calculation(angle_list, len_list):
