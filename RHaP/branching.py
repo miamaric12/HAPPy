@@ -17,8 +17,8 @@ def branch_classification(thres):
     -------
     skel: array
         skeletonised image
-    is_main:
-        help
+    is_main: array
+       whether the hydride identified is part of the main section or if it is a branch
     BLF: int/float
         branch length fraction
     """
