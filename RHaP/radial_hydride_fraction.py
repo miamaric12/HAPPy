@@ -174,40 +174,40 @@ def RHF_no_weighting_factor(angle_list, len_list):
 
 
 def weighted_RHF_calculation(angle_list, len_list):
-    """
-    Weighted Radial Hydride Fraction Calculation
-    
+    """Weighted Radial Hydride Fraction Calculation
+
     Parameters
     ----------
-    angle_list: list
+    angle_list : array
         List of angles generated from the hogh line transform
-    len_list: list
+    len_list : array
         List of lengths generated from the hogh line transform
-   
+
     Returns
     -------
-      RHF: float
-          Weighted radial hydride fraction
+    RHF : float
+        Weighted radial hydride fraction
     """
 
     deg_angle_list = np.rad2deg(angle_list)
     fi = []
 
     for k in deg_angle_list:
-        if k >0 and k<=30: x=1
-        elif k>30 and k<=50: x=0.5
-        elif k>50 and k<=90: x=0
-        elif k>-30 and k<=0: x=1
-        elif k>-50 and k<=-30: x=0.5
-        elif k>-90 and k<=-50: x=0
+        if 0 < k <= 30:
+            x = 1
+        elif 30 < k <= 50:
+            x = 0.5
+        elif 50 < k <= 90:
+            x = 0
+        elif -30 < k <= 0:
+            x = 1
+        elif -50 < k <= -30:
+            x = 0.5
+        elif -90 < k <= -50:
+            x = 0
 
         fi.append(x)
 
-    #The next step is to do the summation
-    SumOfLixFi = sum(len_list * np.array(fi))
-    SumOfLi = sum(len_list)
-
-    RHF = SumOfLixFi / SumOfLi
+    RHF = np.average(len_list, weights=fi)
 
     return RHF
-
