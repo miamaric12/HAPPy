@@ -19,7 +19,15 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-buildapi:
-	sphinx-apidoc -fMeT ../RHaP -o ./source/modules     
+docs:
+	@echo "Building API documentation to '/source/RHaP'"
+	sphinx-apidoc -feMT ../RHaP -o ./source/RHaP     
 	@echo "Auto-generation of API documentation finished. " \
-	"The generated files are in 'modules/'"
+	"The generated files are in '/source/RHaP'"
+	@echo " "
+	@echo "Cleaning build folder"
+	make clean
+	@echo " "
+	@echo "Generating html documentation"
+	make html
+	@echo "html documentation built at /build/html"
