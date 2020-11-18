@@ -71,18 +71,6 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-
-# -- Options for HTML output -------------------------------------------------
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
 html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -118,6 +106,33 @@ html_static_path = ['_static']
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'RHaPdoc'
+
+
+# -- Generate API docs during sphinx-build (for readthedocs) ------------------
+
+# Determine if on RTD
+ON_RTD = (os.environ.get('READTHEDOCS') == 'True')
+
+def run_apidoc(_):
+
+    from sphinx.ext import apidoc
+
+    api_args = [
+            '--force',
+            '--separate',                   # Put each module on seperate page
+            '--no-toc',                     # No table of contents
+            '../../RHaP',                 # Module path
+            '-o',                           # Directory to output..
+            '../source/RHaP'              # here
+            ]
+
+    # Invoke apidoc
+    apidoc.main(api_args)  
+
+def setup(app):
+    if ON_RTD:
+        app.connect('builder-inited', run_apidoc)
+
 
 # -- Extension configuration -------------------------------------------------
 
