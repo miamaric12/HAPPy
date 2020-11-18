@@ -1,33 +1,32 @@
 import numpy as np
-from matplotlib import pyplot as plt
 from skimage.morphology import skeletonize
 from skan import Skeleton, summarize
 import networkx as nx
 import toolz as tz
 
+
 def branch_classification(thres):
-    """
-    Predict the extent of branching
-    
+    """Predict the extent of branching.
+
     Parameters
     ----------
-        thres: array
-            thresholded image to be analysed
-    
+    thres: array
+        thresholded image to be analysed
+
     Returns
     -------
-        skel: array
-            skeletonised image
-        is_main:
-            help
-        BLF: int/float
-            branch length fraction
+    skel: array
+        skeletonised image
+    is_main:
+        help
+    BLF: int/float
+        branch length fraction
     """
-    
+
     skeleton = skeletonize(thres)
     skel = Skeleton(skeleton, source_image=thres)
     summary = summarize(skel)
-    
+
     is_main = np.zeros(summary.shape[0])
     us = summary['node-id-src']
     vs = summary['node-id-dst']
@@ -37,8 +36,6 @@ def branch_classification(thres):
         (u, v): i
         for i, (u, v) in enumerate(zip(us, vs))
     }
-
-
 
     edge2idx.update({
         (v, u): i
@@ -54,7 +51,7 @@ def branch_classification(thres):
     for conn in nx.connected_components(g):
         curr_val = 0
         curr_pair = None
-        h = g.subgraph(conn) 
+        h = g.subgraph(conn)
         p = dict(nx.all_pairs_dijkstra_path_length(h))
         for src in p:
             for dst in p[src]:
@@ -62,19 +59,19 @@ def branch_classification(thres):
                 if (val is not None
                         and np.isfinite(val)
                         and val > curr_val):
-                    curr_val = val 
-                    curr_pair = (src, dst) 
+                    curr_val = val
+                    curr_pair = (src, dst)
         for i, j in tz.sliding_window(
             2,
             nx.shortest_path(
                 h, source=curr_pair[0], target=curr_pair[1], weight='weight'
             )
         ):
-            is_main[edge2idx[(i, j)]] = 1 
-            
+            is_main[edge2idx[(i, j)]] = 1
+
     summary['main'] = is_main
 
-    #Branch Length Fraction
+    # Branch Length Fraction
 
     total_length = np.sum(skeleton)
     trunk_length = 0
@@ -85,4 +82,4 @@ def branch_classification(thres):
     branch_length = total_length - trunk_length
     BLF = branch_length/total_length
 
-    return skel,is_main,BLF
+    return skel, is_main, BLF

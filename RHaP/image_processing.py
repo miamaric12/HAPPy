@@ -1,23 +1,22 @@
-import copy
 import numpy as np
 from scipy.ndimage import gaussian_filter
 from skimage.morphology import remove_small_objects
 
 
 def nan_gaussian(image, sigma):
-    """
-    Apply a gaussian filter to an array with nans.
-    
+    """Apply a gaussian filter to an array with nans.
+
     Parameters
     ----------
-        image: 
-            an array with nans
-        sigma: int
-            σ is the standard deviation of the Gaussian distribution
-    
+    image : array
+        an array with nans
+    sigma : float
+        σ is the standard deviation of the Gaussian distribution
+
     Returns
     -------
-        gauss
+    gauss : array, same shape as `image`
+        The Gaussian-filtered input image, with nan entries ignored.
     """
 
     nan_msk = np.isnan(image)
@@ -32,58 +31,63 @@ def nan_gaussian(image, sigma):
 
     return gauss
 
+
 def minimize_grain_contrast(image, sigma):
-    """
-    Minimise grain contrast or uneven lighting by dividing the original image 
+    """Minimise grain contrast or uneven lighting.
+
+    This is accomplished by dividing the original image
     by an image with a gaussian blur applied.
-    
+
     Parameters
     ----------
-        image: 
-            Image to minimise grain contrast.
-        sigma: float
-            Sigma value for gaussian blur.
-        
+    image : array
+        Image to minimise grain contrast.
+    sigma : float
+        Sigma value for gaussian blur.
+
     Returns
     -------
-        removedGrains:
-            Output image.
+    removed_grains : array, same shape as image
+        Output image.
     """
 
-    gaussian_blur = nan_gaussian(image, sigma = sigma)
-    removedGrains = image / gaussian_blur
-    
-    return(removedGrains)
+    gaussian_blur = nan_gaussian(image, sigma=sigma)
+    removed_grains = image / gaussian_blur
+
+    return(removed_grains)
+
 
 def simple_threshold(image, crop_threshold, threshold, small_obj=None):
-    """
-    Threshold the image, where the hydrides are identified to be white and the matrix is black
-    
+    """Threshold the image, accounting for crop and small features.
+
+    Hydrides are assumed to be dark (value below the threshold) in the input
+    image, but are returned as bright (1.0) features in the output, and vice-
+    -versa for the matrix.
+
     Parameters
     ----------
-        removed_grains: arr
-            image to threshold
-        theshold: float
-            threshold level
-        small_grains: int
-            size of features to be removed and not thresholded
-        crop_threshold: array
-            array of true false so that thresholding is only performed within the region that has been previously cropped
-        
+    removed_grains : array
+        image to threshold.
+    crop_threshold : array of bool
+        Thresholding is only performed within regions labeled False in this
+        array. Values labeled True will be set to np.nan in the output
+    theshold : float
+        threshold level.
+    small_obj : int, optional
+        size of features to be removed and not thresholded.
+
     Returns
     -------
-        thres_disp:
-            The thresholded image
+    thres_disp : array of float
+        The thresholded image, with 1.0 in foreground pixels, 0.0 in
+        background pixels, and np.nan in cropped pixels.
     """
 
     thres = image < threshold
     if small_obj is not None:
         thres = remove_small_objects(thres, min_size=small_obj)
 
-
-    thres_disp = copy.deepcopy(thres)
-    thres_disp = np.array(thres_disp)*1.0
+    thres_disp = thres.astype(float)  # this will copy and set True to 1.0
     thres_disp[crop_threshold] = np.nan
-           
-    return thres_disp
 
+    return thres_disp
