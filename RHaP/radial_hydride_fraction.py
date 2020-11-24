@@ -208,6 +208,12 @@ def weighted_RHF_calculation(angle_list, len_list):
 
         fi.append(x)
 
-    RHF = np.average(len_list, weights=fi)
+    #The next step is to do the summation
+    SumOfLixFi = sum(len_list * np.array(fi))
+    SumOfLi = sum(len_list)
+
+    RHF = SumOfLixFi / SumOfLi
 
     return RHF
+
+
