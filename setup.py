@@ -19,7 +19,7 @@ setup(
     long_description_content_type='text/markdown',
     keywords='micrograph, zirconium, hydride',
     project_urls={
-        'GitHub': 'https://github.com/miamaric12/Radial_Hydride_Code'
+        'GitHub': 'https://github.com/miamaric12/HAPPY'
     },
     classifiers=[
         'Intended Audience :: Science/Research',
