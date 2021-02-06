@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to RHaP's documentation!
+Welcome to HAPPY's documentation!
 ================================
 
 RHap is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to: 
