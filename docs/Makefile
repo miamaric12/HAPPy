@@ -20,10 +20,10 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 docs:
-	@echo "Building API documentation to '/source/RHaP'"
-	sphinx-apidoc -feMT ../RHaP -o ./source/RHaP     
+	@echo "Building API documentation to '/source/HAPPY'"
+	sphinx-apidoc -feMT ../HAPPY -o ./source/HAPPY     
 	@echo "Auto-generation of API documentation finished. " \
-	"The generated files are in '/source/RHaP'"
+	"The generated files are in '/source/HAPPY'"
 	@echo " "
 	@echo "Cleaning build folder"
 	make clean
