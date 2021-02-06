@@ -10,7 +10,7 @@ def get_long_description():
 
 
 setup(
-    name='RHaP',
+    name='HAPPY',
     version='0.2',
     author='Mia Maric, Rhys Thomas, Michael D. Atkinson',
     author_email='mia.maric@manchester.ac.uk',
@@ -38,7 +38,7 @@ setup(
         'Framework :: Matplotlib'
     ],
     packages=find_packages(),
-    package_data={'RHaP': ['data/example.bmp']},
+    package_data={'HAPPY': ['data/example.bmp']},
     python_requires='>=3.5',
     install_requires=[
         'scipy',
