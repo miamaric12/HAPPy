@@ -6,7 +6,7 @@
 Welcome to HAPPY's documentation!
 ================================
 
-RHap is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to: 
+HAPPY is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to: 
 - Determine the Radial Hydride Fraction (RHF) 
 - Characterise the extent of branching 
 - Determine the most probable crack path within a micrograph
