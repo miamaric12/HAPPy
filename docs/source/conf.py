@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../../')) 	# Reference the root directory so
 
 # -- Project information -----------------------------------------------------
 
-project = 'RHaP'
+project = 'HAPPY'
 copyright = '2020, Mia Maric'
 author = 'Mia Maric'
 
@@ -60,7 +60,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'RHaP/RHaP.rst']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'HAPPY/HAPPY.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -105,7 +105,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'RHaPdoc'
+htmlhelp_basename = 'HAPPYdoc'
 
 
 # -- Generate API docs during sphinx-build (for readthedocs) ------------------
@@ -121,9 +121,9 @@ def run_apidoc(_):
             '--force',
             '--separate',                   # Put each module on seperate page
             '--no-toc',                     # No table of contents
-            '../../RHaP',                 # Module path
+            '../../HAPPY',                 # Module path
             '-o',                           # Directory to output..
-            '../source/RHaP'              # here
+            '../source/HAPPY'              # here
             ]
 
     # Invoke apidoc
