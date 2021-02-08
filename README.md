@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/RHaP.svg)](https://badge.fury.io/py/RHaP)
 
 
-# HAPPY (Hydride Analysis Package in PYthon)
+# HAPPy (Hydride Analysis Package in PYthon)
 
 This is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to:
 - Determine the Radial Hydride Fraction (RHF)
