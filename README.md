@@ -1,6 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/happy-hydride-analysis-package-in-python/badge/?version=latest)](https://happy-hydride-analysis-package-in-python.readthedocs.io/en/latest/?badge=latest)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/miamaric12/HAPPY/HEAD)
-[![PyPI version](https://badge.fury.io/py/zrhappy.svg)](https://badge.fury.io/py/zrhappy)
+[![PyPI version](https://badge.fury.io/py/zrHAPPy.svg)](https://badge.fury.io/py/zrHAPPy)
 
 # HAPPy (Hydride Analysis Package in Python)
 
