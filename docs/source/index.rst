@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to HAPPY's documentation!
+Welcome to HAPPy's documentation!
 ================================
 
-HAPPY is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to: 
+HAPPy is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to: 
 - Determine the Radial Hydride Fraction (RHF) 
 - Characterise the extent of branching 
 - Determine the most probable crack path within a micrograph
