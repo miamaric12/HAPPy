@@ -1,6 +1,6 @@
-[![Documentation Status](https://readthedocs.org/projects/radial-hydride-code/badge/?version=latest)](https://radial-hydride-code.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/happy-hydride-analysis-package-in-python/badge/?version=latest)](https://happy-hydride-analysis-package-in-python.readthedocs.io/en/latest/?badge=latest)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/miamaric12/HAPPY/HEAD)
-[![PyPI version](https://badge.fury.io/py/RHaP.svg)](https://badge.fury.io/py/RHaP)
+[![PyPI version](https://badge.fury.io/py/zrhappy.svg)](https://badge.fury.io/py/zrhappy)
 
 
 # HAPPy (Hydride Analysis Package in Python)
@@ -12,7 +12,7 @@ This is a Python package developed to aid in the charactacterisation and quantif
 
 ## **How to install**
 
-- `pip install RHaP==0.2`
+- `pip install zrhappy`
 
 ## **How to use**
 
