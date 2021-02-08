@@ -6,10 +6,10 @@ Information on specific functions, classes, and methods.
 .. toctree::
    :maxdepth: 2
 
-   HAPPY.branching
-   HAPPY.crack_path
-   HAPPY.cropping_functions
-   HAPPY.image_processing
-   HAPPY.import_image
-   HAPPY.plot_functions
-   HAPPY.radial_hydride_fraction
+   HAPPY/HAPPY.branching
+   HAPPY/HAPPY.crack_path
+   HAPPY/HAPPY.cropping_functions
+   HAPPY/HAPPY.image_processing
+   HAPPY/HAPPY.import_image
+   HAPPY/HAPPY.plot_functions
+   HAPPY/HAPPY.radial_hydride_fraction
