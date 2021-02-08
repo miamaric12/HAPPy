@@ -24,7 +24,7 @@ This is a Python package developed to aid in the charactacterisation and quantif
 
 ## **Documentation**
 
-- For more help, browse the documentation in the /docs directory.
+- happy-hydride-analysis-package-in-python.readthedocs.io
 
 ## **Credits**
 
