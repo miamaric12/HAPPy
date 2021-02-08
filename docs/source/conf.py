@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../../')) 	# Reference the root directory so
 
 # -- Project information -----------------------------------------------------
 
-project = 'HAPPY'
+project = 'HAPPy'
 copyright = '2020, Mia Maric'
 author = 'Mia Maric'
 
