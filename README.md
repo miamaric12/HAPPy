@@ -11,7 +11,8 @@ This is a Python package developed to aid in the charactacterisation and quantif
 
 ## **How to install**
 
-- pip install zrhappy==0.1
+- Instal from PyPi link above
+
 
 ## **How to use**
 
