@@ -2,7 +2,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/miamaric12/HAPPY/HEAD)
 [![PyPI version](https://badge.fury.io/py/zrhappy.svg)](https://badge.fury.io/py/zrhappy)
 
-
 # HAPPy (Hydride Analysis Package in Python)
 
 This is a Python package developed to aid in the charactacterisation and quantification of hydrides from micrographs. The main functions of this package are to:
