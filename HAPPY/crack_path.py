@@ -10,7 +10,7 @@ from skimage.graph import MCP_Flexible
 class My_MCP(MCP_Flexible):   #has a set of functions and variables 
 
     def __init__(self, distance_weight=0):
-        self.distance_weight=distance_weight
+        self.distance_weight = distance_weight
         super().__init__()     # Based on the skimage.graph MCP_Flexible class
 
     def travel_cost(thres, new_cost, offset_length):
@@ -18,7 +18,13 @@ class My_MCP(MCP_Flexible):   #has a set of functions and variables
         return my_cost
 
 
-def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
+def det_crack_path(
+        thres,
+        crop_threshold,
+        num_runs,
+        kernel_size,
+        distance_weight=0,
+        ):
     """Determine possible crack paths in the micrograph.
 
     Parameters
@@ -29,6 +35,14 @@ def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
         calculated during thresholding, array of true and false values
     num_runs: int
         number of crack paths to determine
+    kernel_size: int
+        Once a crack is found, all future paths must be at least kernel_size
+        away from it.
+    distance_weight : float
+        Crack paths should follow hydrides but only up to a point: they should
+        also be short. This weight determines how much the "shortness"
+        consideration should count compared to the hydride. Higher weight =>
+        shorter paths.
 
     Returns
     -------
@@ -57,7 +71,7 @@ def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
         # Coordinates and cost corresponding to path
 
 
-        mpc_class = My_MCP(distance_weight = 0)
+        mpc_class = My_MCP(distance_weight=distance_weight)
         m = mcp_class(edist, fully_connected=True)
         cost, path = m.find_costs([0,0],[-1,-1])
 
