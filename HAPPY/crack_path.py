@@ -5,14 +5,18 @@ from skimage.transform import rescale
 from scipy.ndimage.morphology import binary_dilation
 from skimage.graph import MCP_Flexible
 
+
 #so here we are creating a new class that is based off MCP flex allowing us to change the functions in it
 class My_MCP(MCP_Flexible):   #has a set of functions and variables 
+
     def __init__(self, distance_weight=0):
         self.distance_weight=distance_weight
         super().__init__()     # Based on the skimage.graph MCP_Flexible class
+
     def travel_cost(thres, new_cost, offset_length):
         my_cost = (new_cost + (self.distance_weight*offset_length))
         return my_cost
+
 
 def det_crack_path(thres, crop_threshold, num_runs, kernel_size):
     """Determine possible crack paths in the micrograph.
