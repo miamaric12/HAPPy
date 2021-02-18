@@ -74,7 +74,9 @@ def det_crack_path(
 
 
         m = My_MCP(edist, fully_connected=True, distance_weight=distance_weight)
-        cost, path = m.find_costs([(0, 0)] , [(-1,-1)])
+        costs, traceback_array = m.find_costs([(0, 0)] , [(-1,-1)])
+        path = m.traceback((-1, -1))
+        cost = costs[(-1, -1)]
 
         #path, cost = route_through_array(edist, [0, 0], [-1, -1])
         
