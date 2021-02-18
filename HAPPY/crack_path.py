@@ -15,8 +15,8 @@ class My_MCP(MCP_Flexible):   #has a set of functions and variables
                 costs, offsets=offsets, fully_connected=fully_connected
                 )     # Based on the skimage.graph MCP_Flexible class
 
-    def travel_cost(self, thres, new_cost, offset_length):
-        my_cost = (new_cost + (self.distance_weight*offset_length))
+    def travel_cost(self, old_cost, new_cost, offset_length):
+        my_cost = new_cost + (self.distance_weight*offset_length)
         return my_cost
 
 
