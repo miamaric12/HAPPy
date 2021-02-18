@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import ndimage
-from skimage.graph import route_through_array,MCP_Flexible
+from skimage.graph import route_through_array, MCP_Flexible, MCP_Geometric
 from skimage.transform import rescale
 from scipy.ndimage.morphology import binary_dilation
 from skimage.graph import MCP_Flexible
@@ -72,16 +72,16 @@ def det_crack_path(
     for _ in np.arange(num_runs):
         # Coordinates and cost corresponding to path
 
-
         m = My_MCP(edist, fully_connected=True, distance_weight=distance_weight)
+        # if distance_weight==0, this should behave the same as
+        # m = MCP_Geometric(edist, fully_connected=True)
         costs, traceback_array = m.find_costs([(0, 0)] , [(-1,-1)])
-        path = m.traceback((-1, -1))
+        path = np.array(m.traceback((-1, -1)))
         cost = costs[(-1, -1)]
 
-        #path, cost = route_through_array(edist, [0, 0], [-1, -1])
+        # old code that we imitated manually with classes above:
+        # path, cost = route_through_array(edist, [0, 0], [-1, -1])
         
-        path = np.array(path)
-
         # Boolean array based on coordinates, True is on path
         path_array = np.zeros(np.shape(edist), dtype=bool)
         for coord in path:
