@@ -9,9 +9,11 @@ from skimage.graph import MCP_Flexible
 #so here we are creating a new class that is based off MCP flex allowing us to change the functions in it
 class My_MCP(MCP_Flexible):   #has a set of functions and variables 
 
-    def __init__(self, distance_weight=0):
+    def __init__(self, costs, offsets=None, fully_connected=True, distance_weight=0):
         self.distance_weight = distance_weight
-        super().__init__()     # Based on the skimage.graph MCP_Flexible class
+        super().__init__(
+                costs, offsets=offsets, fully_connected=fully_connected
+                )     # Based on the skimage.graph MCP_Flexible class
 
     def travel_cost(thres, new_cost, offset_length):
         my_cost = (new_cost + (self.distance_weight*offset_length))
@@ -71,8 +73,7 @@ def det_crack_path(
         # Coordinates and cost corresponding to path
 
 
-        mpc_class = My_MCP(distance_weight=distance_weight)
-        m = mcp_class(edist, fully_connected=True)
+        m = My_MCP(edist, fully_connected=True, distance_weight=distance_weight)
         cost, path = m.find_costs([0,0],[-1,-1])
 
         #path, cost = route_through_array(edist, [0, 0], [-1, -1])
