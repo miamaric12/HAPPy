@@ -69,14 +69,21 @@ def det_crack_path(
     path_list = []
     cost_list = []
 
+    nrows, ncols = edist.shape
+
     for _ in np.arange(num_runs):
         # Coordinates and cost corresponding to path
 
         m = My_MCP(edist, fully_connected=True, distance_weight=distance_weight)
         # if distance_weight==0, this should behave the same as
         # m = MCP_Geometric(edist, fully_connected=True)
-        costs, traceback_array = m.find_costs([(0, 0)] , [(-1,-1)])
-        path = np.array(m.traceback((-1, -1)))
+        # every coordinate on the top row is a possible start point
+        starts = np.stack((np.zeros(ncols), np.arange(ncols)), axis=1)
+        # every coordinate on tho bottom row is a possible end point
+        ends = np.stack((np.full(ncols, nrows - 1), np.arange(ncols)), axis=1)
+        costs, traceback_array = m.find_costs(starts, ends, find_all_ends=False)
+        end_column = np.argmin(costs[-1, :])
+        path = np.array(m.traceback((-1, end_column)))
         cost = costs[(-1, -1)]
 
         # old code that we imitated manually with classes above:
