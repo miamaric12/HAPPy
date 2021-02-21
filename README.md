@@ -35,7 +35,6 @@ The software uses the following open source packages:
 - [matplotlib](http://matplotlib.org/)
 - [scikit-image](http://scikit-image.org/)
 - [scipy](https://scipy.org/scipylib/)
-- [numba](https://numba.pydata.org)
 - [skan](https://jni.github.io/skan/)
 - [networkx](https://networkx.org/)
 - [toolz](https://github.com/pytoolz/toolz/)
