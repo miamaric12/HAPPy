@@ -84,7 +84,7 @@ def det_crack_path(
         costs, traceback_array = m.find_costs(starts, ends, find_all_ends=False)
         end_column = np.argmin(costs[-1, :])
         path = np.array(m.traceback((-1, end_column)))
-        cost = costs[(-1, -1)]
+        cost = costs[-1, end_column]
 
         # old code that we imitated manually with classes above:
         # path, cost = route_through_array(edist, [0, 0], [-1, -1])
