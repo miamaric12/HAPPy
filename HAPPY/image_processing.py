@@ -57,7 +57,7 @@ def minimize_grain_contrast(image, sigma):
     return(removed_grains)
 
 
-def simple_threshold(image,scale, crop_threshold, threshold, small_obj=None):
+def simple_threshold(image,scale_um, crop_threshold, threshold, small_obj=None):
     """Threshold the image, accounting for crop and small features.
 
     Hydrides are assumed to be dark (value below the threshold) in the input
@@ -71,6 +71,8 @@ def simple_threshold(image,scale, crop_threshold, threshold, small_obj=None):
     crop_threshold : array of bool
         Thresholding is only performed within regions labeled False in this
         array. Values labeled True will be set to np.nan in the output
+    scale_um: int,
+        Scale bar value in microns
     theshold : float
         threshold level.
     small_obj : int, optional
@@ -85,7 +87,7 @@ def simple_threshold(image,scale, crop_threshold, threshold, small_obj=None):
 
     thres = image < threshold
     if small_obj is not None:
-        thres = remove_small_objects(thres, min_size=small_obj*scale*1e6)
+        thres = remove_small_objects(thres, min_size=small_obj/scale_um)
 
     thres_disp = thres.astype(float)  # this will copy and set True to 1.0
     thres_disp[crop_threshold] = np.nan
