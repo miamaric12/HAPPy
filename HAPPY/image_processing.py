@@ -71,7 +71,7 @@ def simple_threshold(image,scale_um, crop_threshold, threshold, small_obj=None):
     crop_threshold : array of bool
         Thresholding is only performed within regions labeled False in this
         array. Values labeled True will be set to np.nan in the output
-    scale_um: int,
+    scale_um: int
         Scale bar value in microns
     theshold : float
         threshold level.
