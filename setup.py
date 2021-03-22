@@ -10,8 +10,8 @@ def get_long_description():
 
 
 setup(
-    name='HAPPY',
-    version='0.2',
+    name='zrHAPPY',
+    version='0.3',
     author='Mia Maric, Rhys Thomas, Michael D. Atkinson, Pratheek Shanthraj',
     author_email='mia.maric@manchester.ac.uk',
     description='A python library to analyse hydride morphology present in light optical and scanning electron micrographs.',
