@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.intersphinx',
     'sphinx_rtd_theme',
+    'nb2plots',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

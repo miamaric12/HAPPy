@@ -11,7 +11,8 @@ Requrements to compile documentation
 
 Install Sphinx (http://www.sphinx-doc.org/en/master/) and the theme:
 
-`conda install sphinx sphinx-rtd-theme`
+`conda install sphinx sphinx-rtd-theme nb2plots`
+
 
 Compiling documentation
 =========================
