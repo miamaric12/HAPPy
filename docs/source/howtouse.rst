@@ -1,3 +1,8 @@
+How to Use HAPPy
+================
+
+.. code-links::
+
 Import packages
 ---------------
 
