@@ -1,8 +1,3 @@
-How to Use HAPPy
-================
-
-.. code-links::
-
 Import packages
 ---------------
 
@@ -62,7 +57,7 @@ Additional Cropping
 
 The second crop function is ``cropping_tube``, which should be used if
 the micrograph is curved and removes black pats of the image which are
-not the tube.
+not the tube. A crop_param of around 0.2 is reccomended.
 
 .. nbplot::
 
@@ -201,6 +196,24 @@ Here all four different RHF calculation methods are shown in the graph
     >>>
 
 
+Mean Hydride Length
+-------------------
+
+Code for determining the MHL
+
+.. nbplot::
+
+    >>> from scipy import ndimage
+    >>>
+    >>> hydride_len = []
+    >>> label, num_features = ndimage.label(thres > 0.1)
+    >>> slices = ndimage.find_objects(label)
+    >>> for feature in np.arange(num_features):
+    ...     hydride_len.append(scale_um*label[slices[feature]].shape[1])
+    ...
+    >>> #print(hydride_len)
+    >>> print(np.mean(hydride_len))
+
 Branch Length Fraction
 ----------------------
 
@@ -241,7 +254,8 @@ once, the area around that path (radius set with ``kernel_size``) is
 discounted, then the process is repeated ``num_runs`` times. Here the
 ``distance_weight`` makes moving in the circumferential direction more
 costly, note when comparing different micrographs, ensure that this
-parameter it is kept constant.
+parameter it is kept constant. We reccomend a weighting of 1.5 and a
+kernel size of 20.
 
 .. nbplot::
 
