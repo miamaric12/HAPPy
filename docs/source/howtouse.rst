@@ -29,8 +29,8 @@ Importing Image
 -  The ``cropImage`` function applies a rectangular crop to the image to
    remove scale bars, or if you have a specific rectangular region you
    want to look at.
--  Input Scale Bar Value in Scale_Bar_Micron_Value, the scale bar will
-   then be calculated.
+-  Input Scale Bar Value in Scale_Bar_Micron_Value and
+   Pixels_In_Scale_Bar, the scale bar will then be calculated.
 
 .. nbplot::
 
