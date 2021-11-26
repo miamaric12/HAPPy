@@ -117,8 +117,9 @@ there are a few input parameters that should be considered: -
 ``num_peaks``: should be changed dependent on the type of micrograph, if
 your hydrides are straight and not very interconnected a small value of
 around 2 is good, if in one box, there are many branches that need to be
-picked up, this value should be increased accordingly. - ``min_dist``,
-``min_angle`` and ``val`` are pre-set and seem to work for most cases.
+picked up, this value should be increased accordingly to a value of 5 or
+more. - ``min_dist``, ``min_angle`` and ``val`` are pre-set and seem to
+work for most cases.
 
 .. nbplot::
 
