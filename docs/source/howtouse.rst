@@ -57,7 +57,7 @@ Additional Cropping
 
 The second crop function is ``cropping_tube``, which should be used if
 the micrograph is curved and removes black pats of the image which are
-not the tube. A crop_param of around 0.2 is reccomended.
+not the tube. A crop_param of around 0.1-0.2 is reccomended.
 
 .. nbplot::
 
@@ -74,7 +74,7 @@ Image Processing
 
 Grain contast or uneven lighting can be minimised through the
 application of a gaussian blur in the ``minimize_grain_contrast``
-function.
+function. A value of 10 seems to work for most cases.
 
 .. nbplot::
 
