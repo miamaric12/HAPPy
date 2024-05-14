@@ -56,7 +56,7 @@ def cropping_tube(image, crop_param, size_param, dilation_param):
     crop_threshold = remove_small_objects(crop_threshold, size_param)
 
     crop_threshold = binary_dilation(
-        crop_threshold, selem=disk(dilation_param)
+        crop_threshold, footprint=disk(dilation_param)
         )
     cropped_image = np.copy(image)
     cropped_image[crop_threshold] = np.nan
