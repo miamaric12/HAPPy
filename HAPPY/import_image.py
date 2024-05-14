@@ -21,8 +21,7 @@ def image(image_path, transpose):
         The transposed/imported image to be analysed
     """
 
-    original_image = imread(image_path)
-    original_image = rgb2gray(original_image)
+    original_image = imread(image_path, as_gray=True)
 
     if transpose:
         original_image = np.transpose(original_image)
